@@ -1,9 +1,9 @@
 # YSCheckBox
 YSCheckBoxは簡単に使えるiOS用のswift製チェックボックスライブラリです。  
 
-![radioButton](radioButton.gif)　
-![radioButton2](radioButton3.gif)　
-![radioButton2](radioButton2.gif)　
+![checkbox1](checkbox1.gif)　
+![checkbox2](checkbox2.gif)　
+![checkbox3](checkbox3.gif)　
 # Features
 ブラウザ標準のようなチェックボックスです。
 
