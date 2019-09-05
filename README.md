@@ -15,7 +15,7 @@ YSCheckBoxは簡単に使えるiOS用のswift製チェックボックスライ�
 
 
 # Usage
-1. YSRadioButtonをインポートします。
+1. YSCheckBoxをインポートします。
  ```Swift
  import YSCheckBox
  ```
