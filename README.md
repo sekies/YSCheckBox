@@ -23,7 +23,7 @@ YSCheckBoxは簡単に使えるiOS用のswift製チェックボックスライ�
  ```Swift
  class ViewController: UIViewController,YSCheckBoxViewControllerDelegate {
  ```
-3. `YSCheckBoxViewController`インスタンスを生成します。生成時にラジオボタンのラベルを配列で指定します。  
+3. `YSCheckBoxViewController`インスタンスを生成します。生成時にチェックボックスのラベルを配列で指定します。  
   ```Swift
   let checkBox = YSCheckBoxViewController(labels: ["Orange","GrapeFruits","Banana"])
   ```
@@ -42,7 +42,7 @@ checkBox.checkBoxCheckStroke = .white
 checkBox.checkBoxSelectedFill = UIColor(red: 0, green: 122 / 255, blue: 1, alpha: 1)
 checkBox.checkBoxBGFill = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
   ```
-4. 親UIViewControllerに生成したYSCheckBoxViewControllerをaddChildしコンテナとなるUIViewにYSCheckBoxViewControllerのviewをaddSubviewします。ラジオボタンの位置はコンテナとなるUIViewに依存します。
+4. 親UIViewControllerに生成したYSCheckBoxViewControllerをaddChildしコンテナとなるUIViewにYSCheckBoxViewControllerのviewをaddSubviewします。チェックボックスの位置はコンテナとなるUIViewに依存します。
   ```Swift
 addChild(checkBox)
 checkBox.view.frame = container.bounds
