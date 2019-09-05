@@ -1,4 +1,4 @@
-# YSRadioButton
+# YSCheckBox
 YSCheckBoxは簡単に使えるiOS用のswift製チェックボックスライブラリです。  
 
 ![radioButton](radioButton.gif)　
@@ -25,7 +25,7 @@ YSCheckBoxは簡単に使えるiOS用のswift製チェックボックスライ�
  ```
 3. `YSCheckBoxViewController`インスタンスを生成します。生成時にラジオボタンのラベルを配列で指定します。  
   ```Swift
-  let radio = YSCheckBoxViewController(labels: ["Orange","GrapeFruits","Banana"])
+  let checkBox = YSCheckBoxViewController(labels: ["Orange","GrapeFruits","Banana"])
   ```
 4. delegateと各種デザインプロパティを設定します。必須となるのはdelegateのみです。
   ```Swift
