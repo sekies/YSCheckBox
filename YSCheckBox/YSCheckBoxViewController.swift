@@ -13,9 +13,10 @@ public protocol YSCheckBoxViewControllerDelegate {
 }
 
 
-public class YSCheckBoxViewController: UIViewController {
+public class YSCheckBoxViewController: UIViewController,YSCheckBoxModelDelegate {
     public var delegate:YSCheckBoxViewControllerDelegate?
     private var checkBoxGroupView:YSCheckBoxGroupView = YSCheckBoxGroupView()
+    private var model:YSCheckBoxModel = YSCheckBoxModel()
     public var labelColor:UIColor {
         get{ return checkBoxGroupView.labelColor }
         set{ checkBoxGroupView.labelColor = newValue }
@@ -66,6 +67,7 @@ public class YSCheckBoxViewController: UIViewController {
     public init(labels: [String]) {
         super.init(nibName: nil, bundle: nil)
         checkBoxGroupView.btnLabels = labels
+        model.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -80,10 +82,11 @@ public class YSCheckBoxViewController: UIViewController {
         super.loadView()
         self.view = checkBoxGroupView
         checkBoxGroupView.layoutButtons()
-        for btn in checkBoxGroupView.btns {
+        for (i,btn) in checkBoxGroupView.btns.enumerated() {
+            model.append(val: false)
+            btn.tag = i
             btn.addTarget(self, action: #selector(btnTapped(_:)), for: .touchUpInside)
         }
-        
     }
     
     @objc func btnTapped(_ sender: YSCheckBox) {
@@ -93,15 +96,10 @@ public class YSCheckBoxViewController: UIViewController {
             sender.drawSelectedCircle()
         }
         sender.isSelected = !sender.isSelected
-        
-        delegate?.didYSCeckBoxSelect(checks: isCheckArr())
+        model.set(val: sender.isSelected, idx: sender.tag)
     }
     
-    private func isCheckArr()->[Bool]{
-        var checks:[Bool] = []
-        for btn in checkBoxGroupView.btns {
-            checks.append(btn.isSelected)
-        }
-        return checks
+    func ysCheckBoxModelDidSet(selectedArr: [Bool]) {
+        delegate?.didYSCeckBoxSelect(checks: selectedArr)
     }
 }
